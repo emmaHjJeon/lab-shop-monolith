@@ -11,6 +11,6 @@ import java.util.Date;
 
 @FeignClient(name = "Inventory", url = "${api.url.Inventory}")
 public interface InventoryService {
-    @RequestMapping(method= RequestMethod.POST, path="/inventories")
-    public void orderProduct(@RequestBody Inventory inventory);
+    @RequestMapping(method= RequestMethod.PUT, path="/inventories/{id}/decreasestock")
+    public void decreaseStock(@PathVariable("id") Long id, @RequestBody DecreaseStockCommand decreaseStockCommand );
 }
